@@ -21,8 +21,7 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
-          commit_message: "[BOT] ensure newlines"
-          commit_author: "Github Actions <actions@github.com>"
+          commit_message: "[BOT] Ensure newlines"
           file_pattern: "js-src/*.js"
         
   build_main_js:
@@ -40,7 +39,6 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
-          commit_message: "[BOT] ensure newlines"
-          commit_author: "Github Actions <actions@github.com>"
+          commit_message: "[BOT] Build main.js"
           file_pattern: "js-min/main.js"
   
