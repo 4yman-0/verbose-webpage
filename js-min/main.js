@@ -1,5 +1,6 @@
 // This file is generated AUTOMATICALLY
 
+print("CI/CD is up and running on GitHub. GG")
 if (navigator.getBattery){
     navigator.getBattery().then((battery) => {
         print(`Battery: ${battery.level*100}% ${battery.charging ? "charging" : "not charging"}`)
