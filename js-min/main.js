@@ -26,7 +26,6 @@ Notification.requestPermission().then(result => {
 });
 print(`Screen: ${screen.width}x${screen.height} ${screen.orientation.type} ${screen.pixelDepth} bit`);
 
-screen.orientation.addEventListener("change", (event) => {
-    const type = event.target.type;
-    print(`Screen ${type}`);
+screen.orientation.addEventListener("change", () => {
+    print(`Screen: ${screen.orientation.type}`);
 });
