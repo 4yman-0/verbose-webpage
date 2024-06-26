@@ -7,6 +7,7 @@ on:
     paths:
       - 'js-src/*.js'
       - 'js-src/**/*.js'
+  workflow_dispatch:
 
 jobs:
   ensure-newline:
