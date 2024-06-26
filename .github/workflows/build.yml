@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'js-src/**'
+      - 'js-src/*.js'
+      - 'js-src/**/*.js'
 
 jobs:
   ensure-newline:
@@ -24,7 +25,9 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
           commit_message: "[BOT] Check newlines"
-          file_pattern: "js-src/**.js"
+          file_pattern:
+            - "js-src/**.js"
+            - "js-src/**/*.js"
 
   build_main_js:
     runs-on: ubuntu-latest

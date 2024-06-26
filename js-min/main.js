@@ -1,5 +1,8 @@
 // This file is generated AUTOMATICALLY
 
+if (typeof(window.ActiveXObject) != "undefined") {
+    print("ActiveX enabled");
+}
 if (navigator.getBattery){
     navigator.getBattery().then((battery) => {
         print(`Battery: ${battery.level*100}% ${battery.charging ? "charging" : "not charging"}`)
@@ -12,6 +15,9 @@ navigator.permissions.query({name: "bluetooth"}).then((result)=>{
 }, ()=>{
     print("Bluetooth unavailable");
 });
+if(navigator.doNotTrack == 1) {
+    print("Do Not Track enabled");
+}
 navigator.geolocation.getCurrentPosition((pos) => {
     print(`Geolocaion (${pos.coords.latitude}, ${pos.coords.longitude}`);
 }, (err)=>{
@@ -21,6 +27,14 @@ navigator.geolocation.getCurrentPosition((pos) => {
         print(`Geolocation error`);
     }
 });
+if (history.length > 1){
+    print(`History: ${history.length} entries`);
+}
+if (navigator.javaEnabled && navigator.javaEnabled()){
+    print("Java enabled");
+}
+print(`Main language: ${navigator.language}`);
+print(`Other languages: ${navigator.languages.join(", ")}.`);
 Notification.requestPermission().then(result => {
     print(`Notifications are ${result}`)
 });
