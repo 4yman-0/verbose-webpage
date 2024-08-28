@@ -1,2 +1,2 @@
-print(`Main language: ${navigator.language}`);
-print(`Other languages: ${navigator.languages.join(", ")}.`);
+print("Language", `Main: ${navigator.language}`);
+print("Language", `Other: ${navigator.languages.join(", ")}.`);

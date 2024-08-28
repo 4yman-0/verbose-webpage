@@ -1,9 +1,9 @@
 navigator.geolocation.getCurrentPosition((pos) => {
-    print(`Geolocaion: (${pos.coords.latitude}, ${pos.coords.longitude}`);
+    print("Geolocaion", `(${pos.coords.latitude}, ${pos.coords.longitude})`);
 }, (err)=>{
 	if (err.PERMISSION_DENIED) {
-        print("Geolocation is denied");
+        print("Geolocation", "denied");
     } else {
-        print(`Geolocation error`);
+        print("Geolocation", "error");
     }
 });
