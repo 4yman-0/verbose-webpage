@@ -30,8 +30,7 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
-          git commit -m "[build.yml] ${{ github.event.head_commit.message }}" \
-            || echo "Nothing to commit." && exit 0
+          git commit -m "[build.yml] ${{ github.event.head_commit.message }}" || exit 0
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
