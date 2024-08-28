@@ -1,2 +1,2 @@
-log('Language', 'Main: ' + navigator.language);
-log('Language', 'Other: ' + navigator.languages.join(', ') + '.');
+print(`Main language: ${navigator.language}`);
+print(`Other languages: ${navigator.languages.join(", ")}.`);
