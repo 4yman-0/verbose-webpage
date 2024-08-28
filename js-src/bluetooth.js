@@ -1,5 +1,5 @@
 navigator.permissions.query({name: "bluetooth"}).then((result)=>{
-    print(`Bluetooth is ${result}`);
+    print("Bluetooth", result);
 }, ()=>{
-    print("Bluetooth unavailable");
+    print("Bluetooth", "unavailable");
 });
