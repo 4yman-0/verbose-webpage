@@ -1,7 +1,11 @@
 // This file is generated AUTOMATICALLY
 
-if(navigator.doNotTrack == 1) {
-    log('Do Not Track', 'enabled');
+if (navigator.getBattery){
+    navigator.getBattery().then((battery) => {
+        print(`Battery: ${battery.level*100}% ${battery.charging ? "charging" : "not charging"}`)
+    });
+} else {
+    print("Battery unavailable");
 }
 if (history.length > 1){
     log('History', history.length + ' entries');

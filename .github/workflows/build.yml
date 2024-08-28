@@ -5,9 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'js-src/*.js'
-      - 'js-src/**/*.js'
-  workflow_dispatch:
+      - 'js-src/**'
 
 jobs:
   build:
@@ -19,16 +17,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        with:
+          commit_message: "[BOT] Ensure newlines"
+          file_pattern: "js-src/*.js"
+        
+  build_main_js:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Build main.js
         run: ./tools/build.sh
 
-      - name: Push changes
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git add .
-          git commit -m "[build.yml] ${{ github.event.head_commit.message }}" || exit 0
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        with:
+          commit_message: "[BOT] Build main.js"
+          file_pattern: "js-min/main.js"
