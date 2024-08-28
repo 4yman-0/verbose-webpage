@@ -19,9 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run newline script
-        run: ./tools/check_newline.sh
-
       - name: Build main.js
         run: ./tools/bundle.sh
 

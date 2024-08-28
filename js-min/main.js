@@ -1,40 +1,13 @@
 // This file is generated AUTOMATICALLY
 
-if (navigator.getBattery){
-    navigator.getBattery().then((battery) => {
-        print(
-			'Battery',
-			`${battery.level*100}% ${battery.charging ? "charging" : "not charging"}`
-		);
-    });
-}
-if (navigator.permisions){
-    navigator.permissions.query({name: 'bluetooth'}).then((result)=>{
-        print('Bluetooth', result);
-    });
-}
 if(navigator.doNotTrack == 1) {
     print('Do Not Track', 'enabled');
-}
-if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition((pos) => {
-        print('Geolocaion', '('+ pos.coords.latitude +', '+ pos.coords.longitude +')');
-    }, (err)=>{
-	    if (!err.PERMISSION_DENIED) {
-            print('Geolocation', 'error');
-        }
-    });
 }
 if (history.length > 1){
     print('History', history.length + ' entries');
 }
 print('Language', 'Main: ' + navigator.language);
 print('Language', 'Other: ' + navigator.languages.join(', ') + '.');
-if (Notification && Notification.requestPermission){
-	Notification.requestPermission().then(result => {
-		(result == 'granted') && print('Notifications', result);
-	});
-}
 print('Platform', navigator.platform || 'unknown');
 if (document.referrer){
 	print('Referrer', document.referrer);
@@ -42,10 +15,10 @@ if (document.referrer){
 const scrW = screen.width;
 const scrH = screen.height;
 
-print('Screen', `${scrW}x${scrH} ${screen.orientation.type}`);
+print('Screen', scrW + 'x' + scrH + ' ' +screen.orientation.type);
 
 if (screen.orientation){
-	screen.orientation.addEventListener('change', () => {
+	screen.orientation.addEventListener('change', function (){
 		print('Screen', screen.orientation.type);
 	});
 }
@@ -67,6 +40,17 @@ if (CSS && CSS.supports){
 }
 assertFirefox(Math.hypot(-24.42, -50.519999999999925) === 56.11244781686139);
 assertWebkit(Math.hypot(-24.42, -50.519999999999925) === 56.1124478168614);
+/*
+	Note to self: Do NOT read userAgent
+*/
+
+assertFirefox(navigator.oscpu);
+
+assertFirefox(navigator.productSub == '20100101');
+assertWebkit(navigator.productSub != '20100101');
+
+assertFirefox(!navigator.vendor);
+assertWebkit(navigator.vendor == "Google Inc.");
 assertFirefox(window.mozInnerScreenX !== undefined);
 assertWebkit(window.webkitCancelAnimationFrame !== undefined);
 assertWebkit(window.PERSISTENT !== undefined);
@@ -89,4 +73,31 @@ if (typeof(window.ActiveXObject) != 'undefined') {
 }
 if (navigator.javaEnabled && navigator.javaEnabled()){
     print('Java', 'enabled');
+}
+if (navigator.getBattery){
+    navigator.getBattery().then(function (battery){
+        print(
+			'Battery',
+			battery.level*100 + '% ' + (battery.charging ? '' : 'not') + 'charging'
+		);
+    });
+}
+if (navigator.permisions){
+    navigator.permissions.query({name: 'bluetooth'}).then(function (result){
+        print('Bluetooth', result);
+    });
+}
+if (navigator.geolocation){
+	navigator.geolocation.getCurrentPosition(function (pos){
+        print('Geolocaion', '('+ pos.coords.latitude +', '+ pos.coords.longitude +')');
+    }, function (err){
+	    if (!err.PERMISSION_DENIED) {
+            print('Geolocation', 'error');
+        }
+    });
+}
+if (Notification && Notification.requestPermission){
+	Notification.requestPermission().then(function (result){
+		(result == 'granted') && print('Notifications', result);
+	});
 }
