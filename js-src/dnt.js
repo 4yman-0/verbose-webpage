@@ -1,3 +1,3 @@
 if(navigator.doNotTrack == 1) {
-    print('Do Not Track', 'enabled');
+    log('Do Not Track', 'enabled');
 }

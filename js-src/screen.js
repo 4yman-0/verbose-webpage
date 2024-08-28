@@ -1,10 +1,10 @@
-const scrW = screen.width;
-const scrH = screen.height;
+var scrW = screen.width;
+var scrH = screen.height;
 
-print('Screen', scrW + 'x' + scrH + ' ' +screen.orientation.type);
+log('Screen', scrW + 'x' + scrH + ' ' +screen.orientation.type);
 
 if (screen.orientation){
 	screen.orientation.addEventListener('change', function (){
-		print('Screen', screen.orientation.type);
+		log('Screen', screen.orientation.type);
 	});
 }

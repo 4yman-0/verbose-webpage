@@ -1,3 +1,3 @@
 if (document.referrer){
-	print('Referrer', document.referrer);
+	log('Referrer', document.referrer);
 }

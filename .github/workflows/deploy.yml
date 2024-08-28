@@ -1,8 +1,8 @@
 name: Deploy to Github Pages
 
 on:
-	workflow_run:
-		workflows: ["Make main.js"]
+  workflow_run:
+    workflows: ["Make main.js"]
     types:
       - completed
 

@@ -7,7 +7,7 @@
 :root {
     --bg-1: #444;
     --bg-2: #222;
-    --fg: #FFF;
+    --fg: #EEE;
 	--font-sans: 'Segoe UI', Tahoma, 'Helvetica Neue', sans-serif;
 	--font-mono: 'Courier New', 'Noto Mono', monospace;
 }
@@ -49,6 +49,9 @@ body {
 	overflow: auto;
     color: #FFF;
     background: #000;
+
+    font-family: monospace;
+
     font-family: var(--font-mono);
 }
 

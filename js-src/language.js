@@ -1,2 +1,2 @@
-print('Language', 'Main: ' + navigator.language);
-print('Language', 'Other: ' + navigator.languages.join(', ') + '.');
+log('Language', 'Main: ' + navigator.language);
+log('Language', 'Other: ' + navigator.languages.join(', ') + '.');

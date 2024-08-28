@@ -1,30 +1,33 @@
 // This file is generated AUTOMATICALLY
 
 if(navigator.doNotTrack == 1) {
-    print('Do Not Track', 'enabled');
+    log('Do Not Track', 'enabled');
 }
 if (history.length > 1){
-    print('History', history.length + ' entries');
+    log('History', history.length + ' entries');
 }
-print('Language', 'Main: ' + navigator.language);
-print('Language', 'Other: ' + navigator.languages.join(', ') + '.');
-print('Platform', navigator.platform || 'unknown');
+if (window !== window.parent){
+	log()
+}
+log('Language', 'Main: ' + navigator.language);
+log('Language', 'Other: ' + navigator.languages.join(', ') + '.');
+log('Platform', navigator.platform || 'unknown');
 if (document.referrer){
-	print('Referrer', document.referrer);
+	log('Referrer', document.referrer);
 }
-const scrW = screen.width;
-const scrH = screen.height;
+var scrW = screen.width;
+var scrH = screen.height;
 
-print('Screen', scrW + 'x' + scrH + ' ' +screen.orientation.type);
+log('Screen', scrW + 'x' + scrH + ' ' +screen.orientation.type);
 
 if (screen.orientation){
 	screen.orientation.addEventListener('change', function (){
-		print('Screen', screen.orientation.type);
+		log('Screen', screen.orientation.type);
 	});
 }
-let isFirefox = 0, isWebkit = 0;
-let isIE = !!window.document.documentMode || /*@cc_on!@*/false;
-let isSafari = !!window.safari || /Constructor/.test(window.HTMLElement);
+var isFirefox = 0, isWebkit = 0;
+var isIE = !!window.document.documentMode || /*@cc_on!@*/false;
+var isSafari = !!window.safari || /varructor/.test(window.HTMLElement);
 
 function assertFirefox (assert){
 	assert && isFirefox++;
@@ -56,27 +59,27 @@ assertWebkit(window.webkitCancelAnimationFrame !== undefined);
 assertWebkit(window.PERSISTENT !== undefined);
 assertWebkit(window.chrome !== undefined);
 if (isIE) {
-	print('Browser', 'IE detected');
+	log('Browser', 'IE detected');
 } else if (isFirefox > isWebkit) {
-	print('Browser', 'Firefox detected');
+	log('Browser', 'Firefox detected');
 } else if (isWebkit > isFirefox) {
 	if (isSafari) {
-		print('Browser', 'Safari detected');
+		log('Browser', 'Safari detected');
 	} else {
-		print('Browser', 'Chromium detected');
+		log('Browser', 'Chromium detected');
 	}
 } else {
-	print('Browser', 'Unknown');
+	log('Browser', 'Unknown');
 }
 if (typeof(window.ActiveXObject) != 'undefined') {
-    print('ActiveX', 'enabled');
+    log('ActiveX', 'enabled');
 }
 if (navigator.javaEnabled && navigator.javaEnabled()){
-    print('Java', 'enabled');
+    log('Java', 'enabled');
 }
 if (navigator.getBattery){
     navigator.getBattery().then(function (battery){
-        print(
+        log(
 			'Battery',
 			battery.level*100 + '% ' + (battery.charging ? '' : 'not') + 'charging'
 		);
@@ -84,20 +87,20 @@ if (navigator.getBattery){
 }
 if (navigator.permisions){
     navigator.permissions.query({name: 'bluetooth'}).then(function (result){
-        print('Bluetooth', result);
+        log('Bluetooth', result);
     });
 }
 if (navigator.geolocation){
 	navigator.geolocation.getCurrentPosition(function (pos){
-        print('Geolocaion', '('+ pos.coords.latitude +', '+ pos.coords.longitude +')');
+        log('Geolocaion', '('+ pos.coords.latitude +', '+ pos.coords.longitude +')');
     }, function (err){
 	    if (!err.PERMISSION_DENIED) {
-            print('Geolocation', 'error');
+            log('Geolocation', 'error');
         }
     });
 }
 if (Notification && Notification.requestPermission){
 	Notification.requestPermission().then(function (result){
-		(result == 'granted') && print('Notifications', result);
+		(result == 'granted') && log('Notifications', result);
 	});
 }

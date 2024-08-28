@@ -1,6 +1,6 @@
-let isFirefox = 0, isWebkit = 0;
-let isIE = !!window.document.documentMode || /*@cc_on!@*/false;
-let isSafari = !!window.safari || /Constructor/.test(window.HTMLElement);
+var isFirefox = 0, isWebkit = 0;
+var isIE = !!window.document.documentMode || /*@cc_on!@*/false;
+var isSafari = !!window.safari || /varructor/.test(window.HTMLElement);
 
 function assertFirefox (assert){
 	assert && isFirefox++;
