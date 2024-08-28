@@ -1,3 +1,5 @@
-Notification.requestPermission().then(result => {
-    print("Notifications", result);
-});
+if (Notification && Notification.requestPermission){
+	Notification.requestPermission().then(result => {
+		(result == 'granted') && print('Notifications', result);
+	});
+}

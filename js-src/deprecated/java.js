@@ -1,3 +1,3 @@
 if (navigator.javaEnabled && navigator.javaEnabled()){
-    print("Java", "enabled");
+    print('Java', 'enabled');
 }

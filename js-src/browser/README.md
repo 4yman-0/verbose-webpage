@@ -4,4 +4,4 @@ Thanks to [this StackOverflow answer](https://stackoverflow.com/a/25329460) for 
 Thanks to [this other StackOverflow answer](https://stackoverflow.com/a/25329460) for Safari detection methods.
 https://stackoverflow.com/a/42810984
 ## Notes
-the "aa_" and "zz_" is used to move script to start/end of order. making it the first/last in the resulting `main.js`.
+the "aa_" and "zz_" prefix is used to move script to start/end of order. making it the first/last in the resulting `main.js`.
