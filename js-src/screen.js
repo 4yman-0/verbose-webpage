@@ -1,5 +1,5 @@
-var scrW = screen.width;
-var scrH = screen.height;
+const srcW = screen.width * screen.pixelDepth;
+const srcH = screen.height * screen.pixelDepth;
 
 print("Screen", `${scrW}x${scrH} ${screen.orientation.type}`);
 
