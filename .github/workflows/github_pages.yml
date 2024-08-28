@@ -10,6 +10,7 @@ on:
       - ".editorconfig"
       - "LICENSE"
       - "README.md"
+  workflow_dispatch:
 
 permissions:
   contents: read
