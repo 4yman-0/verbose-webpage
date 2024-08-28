@@ -1,3 +1,3 @@
-if (typeof(window.ActiveXObject) != 'undefined') {
-    log('ActiveX', 'enabled');
+if (typeof(window.ActiveXObject) != "undefined") {
+    print("ActiveX enabled");
 }
