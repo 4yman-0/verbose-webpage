@@ -1,8 +1,5 @@
 // This file is generated AUTOMATICALLY
 
-if (typeof(window.ActiveXObject) != "undefined") {
-    print("ActiveX enabled");
-}
 if (navigator.getBattery){
     navigator.getBattery().then((battery) => {
         print(`Battery: ${battery.level*100}% ${battery.charging ? "charging" : "not charging"}`)
@@ -27,10 +24,8 @@ navigator.geolocation.getCurrentPosition((pos) => {
         print(`Geolocation error`);
     }
 });
-if (navigator.javaEnabled && navigator.javaEnabled()){
-    print("Java enabled");
-} else {
-    print("Java disabled or unsupported");
+if (history.length > 1){
+    print(`History: ${history.length} entries`);
 }
 print(`Main language: ${navigator.language}`);
 print(`Other languages: ${navigator.languages.join(", ")}.`);
@@ -42,3 +37,9 @@ print(`Screen: ${screen.width}x${screen.height} ${screen.orientation.type} ${scr
 screen.orientation.addEventListener("change", () => {
     print(`Screen: ${screen.orientation.type}`);
 });
+if (typeof(window.ActiveXObject) != "undefined") {
+    print("ActiveX enabled");
+}
+if (navigator.javaEnabled && navigator.javaEnabled()){
+    print("Java enabled");
+}
