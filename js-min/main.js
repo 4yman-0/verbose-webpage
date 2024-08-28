@@ -37,10 +37,8 @@ if (document.referrer){
 } else {
 	print("Referrer", "unavailable");
 }
-let [scrW, srcH] = [
-	screen.width * screen.pixelDepth,
-	screen.height * screen.pixelDepth
-];
+const srcW = screen.width * screen.pixelDepth;
+const srcH = screen.height * screen.pixelDepth;
 
 print("Screen", `${scrW}x${scrH} ${screen.orientation.type}`);
 
