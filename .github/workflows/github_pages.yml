@@ -30,6 +30,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Clean Pages
+        run: ./tools/clean_pages.sh
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
