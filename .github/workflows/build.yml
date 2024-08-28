@@ -25,8 +25,13 @@ jobs:
       - name: Build main.js
         run: ./tools/bundle.sh
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5.0.1
-        with:
-          commit_message: "[BOT] check newlines and build"
-          file_pattern: "js-src/*.js js-src/**/*.js js-min/main.js"
+      - name: Merge changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin
+          git checkout main
+          git merge --no-ff ${GITHUB_SHA}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
