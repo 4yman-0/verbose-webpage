@@ -1,4 +1,4 @@
-assertFirefox(window.mozInnerScreenX !== undefined);
-assertWebkit(window.webkitCancelAnimationFrame !== undefined);
-assertWebkit(window.PERSISTENT !== undefined);
-assertWebkit(window.chrome !== undefined);
+(window.mozInnerScreenX !== undefined) &&            isFirefox++;
+(window.webkitCancelAnimationFrame !== undefined) && isWebkit++;
+(window.PERSISTENT !== undefined) &&                 isWebkit++;
+(window.chrome !== undefined) &&                     isWebkit++;
