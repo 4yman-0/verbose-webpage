@@ -16,7 +16,7 @@ if(navigator.doNotTrack == 1) {
     print("Do Not Track enabled");
 }
 navigator.geolocation.getCurrentPosition((pos) => {
-    print(`Geolocaion (${pos.coords.latitude}, ${pos.coords.longitude}`);
+    print(`Geolocaion: (${pos.coords.latitude}, ${pos.coords.longitude}`);
 }, (err)=>{
     if (err.PERMISSION_DENIED) {
         print("Geolocation is denied");

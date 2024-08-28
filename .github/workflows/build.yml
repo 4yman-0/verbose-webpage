@@ -25,9 +25,13 @@ jobs:
       - name: Build main.js
         run: ./tools/bundle.sh
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5.0.1
-        with:
-          commit_message: "[BOT] check newlines and build"
-          file_pattern: "js-src/*.js js-src/**/*.js js-min/main.js"
+      - name: Push changes
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "[build.yml] ${{ github.event.head_commit.message }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
