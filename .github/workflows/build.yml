@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-newline:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -22,28 +22,12 @@ jobs:
       - name: Run newline script
         run: ./tools/check_newline.sh
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5.0.1
-        with:
-          commit_message: "[BOT] Check newlines"
-          file_pattern: "js-src/**.js js-src/**/*.js"
-
-  bundle:
-    needs: check-newline
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Build main.js
         run: ./tools/bundle.sh
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
-          commit_message: "[BOT] Build main.js"
-          file_pattern: "js-min/main.js"
+          commit_message: "[BOT] check newlines build"
+          file_pattern: "js-src/*.js js-src/**/*.js js-min/main.js"
 
