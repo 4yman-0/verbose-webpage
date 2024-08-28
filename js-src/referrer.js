@@ -1,3 +1,5 @@
 if (document.referrer){
-	log('Referrer', document.referrer);
+	print(`Referrer: ${document.referrer}`);
+} else {
+	print("Referrer unavailable");
 }
