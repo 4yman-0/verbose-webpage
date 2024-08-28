@@ -28,6 +28,6 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
-          commit_message: "[BOT] check newlines build"
+          commit_message: "[BOT] check newlines and build"
           file_pattern: "js-src/*.js js-src/**/*.js js-min/main.js"
 
