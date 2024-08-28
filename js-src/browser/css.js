@@ -1,4 +1,3 @@
-(CSS.supports("-moz-user-focus", "normal")) && isFirefox++;
-(CSS.supports("-moz-box-sizing", "content-box")) && isFirefox++;
-(CSS.supports("-webkit-border-vertical-spacing", 0)) && isWebkit++;
-
+assertFirefox(CSS.supports("-moz-user-focus", "normal"));
+assertFirefox(CSS.supports("-moz-box-sizing", "content-box"));
+assertWebkit(CSS.supports("-webkit-border-vertical-spacing", 0));

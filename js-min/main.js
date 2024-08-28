@@ -45,18 +45,18 @@ screen.orientation.addEventListener("change", () => {
 let isFirefox = 0, isWebkit = 0;
 // https://stackoverflow.com/a/25329460
 let isIE = !!window.document.documentMode || /*@cc_on!@*/false;
-(CSS.supports("-moz-user-focus", "normal")) && isFirefox++;
-(CSS.supports("-moz-box-sizing", "content-box")) && isFirefox++;
-(CSS.supports("-webkit-border-vertical-spacing", 0)) && isWebkit++;
+assertFirefox(CSS.supports("-moz-user-focus", "normal"));
+assertFirefox(CSS.supports("-moz-box-sizing", "content-box"));
+assertWebkit(CSS.supports("-webkit-border-vertical-spacing", 0));
 if (Math.hypot(-24.42, -50.519999999999925) === 56.11244781686139) {
     isFirefox++;
 } else if (Math.hypot(-24.42, -50.519999999999925) === 56.1124478168614) {
     isWebkit++;
 }
-(window.mozInnerScreenX !== undefined) &&            isFirefox++;
-(window.webkitCancelAnimationFrame !== undefined) && isWebkit++;
-(window.PERSISTENT !== undefined) &&                 isWebkit++;
-(window.chrome !== undefined) &&                     isWebkit++;
+assertFirefox(window.mozInnerScreenX !== undefined);
+assertWebkit(window.webkitCancelAnimationFrame !== undefined);
+assertWebkit(window.PERSISTENT !== undefined);
+assertWebkit(window.chrome !== undefined);
 if (isIE) {
 	print("Browser: IE detected");
 } else if (isFirefox > isWebkit) {

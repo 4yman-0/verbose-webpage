@@ -3,7 +3,11 @@ if (isIE) {
 } else if (isFirefox > isWebkit) {
 	print("Browser: Firefox detected");
 } else if (isWebkit > isFirefox) {
-	print("Browser: Chromium/Safari detected");
+	if (isSafari) {
+		print("Browser: Safari detected");
+	} else {
+		print("Browser: Chromium detected");
+	}
 } else {
 	print("Browser: Unknown");
 }
