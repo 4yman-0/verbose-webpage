@@ -1,4 +1,4 @@
-name: Run checks and make main.js
+name: Make main.js
 
 on:
   push:
@@ -19,11 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run newline script
-        run: ./tools/check_newline.sh
-
       - name: Build main.js
-        run: ./tools/bundle.sh
+        run: ./tools/build.sh
 
       - name: Push changes
         run: |

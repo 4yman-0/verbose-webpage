@@ -1,15 +1,11 @@
 name: Deploy to Github Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - ".github/**"
-      - "tools/**"
-      - ".editorconfig"
-      - "LICENSE"
-      - "README.md"
+	workflow_run:
+		workflows: ["Make main.js"]
+    types:
+      - completed
+
   workflow_dispatch:
 
 permissions:
@@ -26,7 +22,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,16 +30,15 @@ jobs:
 
       - name: Clean Pages
         run: ./tools/clean_pages.sh
-        
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Entire repo
           path: '.'
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
