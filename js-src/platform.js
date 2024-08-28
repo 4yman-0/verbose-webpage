@@ -1,1 +1,1 @@
-log('Platform', navigator.platform || 'unknown');
+print('Platform', navigator.platform || 'unknown');

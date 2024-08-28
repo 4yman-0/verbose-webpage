@@ -3,9 +3,9 @@ let isIE = !!window.document.documentMode || /*@cc_on!@*/false;
 let isSafari = !!window.safari || /Constructor/.test(window.HTMLElement);
 
 function assertFirefox (assert){
-	if (assert) isFirefox++;
+	assert && isFirefox++;
 }
 
 function assertWebkit (assert){
-	if (assert) isWebkit++;
+	assert && isWebkit++;
 }
