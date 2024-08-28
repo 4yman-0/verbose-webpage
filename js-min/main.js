@@ -32,6 +32,11 @@ print(`Other languages: ${navigator.languages.join(", ")}.`);
 Notification.requestPermission().then(result => {
     print(`Notifications are ${result}`)
 });
+if (document.referrer){
+	print(`Referrer: ${document.referrer}`);
+} else {
+	print("Referrer unavailable");
+}
 print(`Screen: ${screen.width}x${screen.height} ${screen.orientation.type} ${screen.pixelDepth} bit`);
 
 screen.orientation.addEventListener("change", () => {
