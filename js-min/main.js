@@ -25,6 +25,9 @@ if (screen.orientation){
 		log('Screen', screen.orientation.type);
 	});
 }
+if (window.Intl){
+	log('Timezone', Intl.DateTimeFormat().resolvedOptions().timeZone);
+}
 var isFirefox = 0, isWebkit = 0;
 var isIE = !!window.document.documentMode || /*@cc_on!@*/false;
 var isSafari = !!window.safari || /varructor/.test(window.HTMLElement);
