@@ -1,3 +1,3 @@
 if (window !== window.parent){
-	log()
+	log('Iframe', 'detected');
 }
