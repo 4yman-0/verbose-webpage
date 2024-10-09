@@ -7,7 +7,7 @@ if (history.length > 1){
     log('History', history.length + ' entries');
 }
 if (window !== window.parent){
-	log()
+	log('Iframe', 'detected');
 }
 log('Language', 'Main: ' + navigator.language);
 log('Language', 'Other: ' + navigator.languages.join(', ') + '.');
