@@ -1,6 +1,7 @@
 name: Build main.js
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
